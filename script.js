@@ -23,13 +23,14 @@ let breakDisplay = document.createElement('h1')
 breakDisplay.classList.add('time-left')
 display.appendChild(breakDisplay)
 
-let roundDisplay = document.createElement('h1')
-roundDisplay.classList.add('time-left')
-display.appendChild(roundDisplay)
-
 let timerLabel = document.createElement('p')
 timerLabel.classList.add('timerLabel')
 display.appendChild(timerLabel)
+
+let roundDisplay = document.createElement('h2')
+roundDisplay.classList.add('time-left')
+display.appendChild(roundDisplay)
+
 
 //initialise view
 const initialiseDisplay  = () =>{

@@ -3,12 +3,30 @@
     color: black;
 }
 
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+    background: linear-gradient(90deg, #f0946f 0%,#e45745 50%,#b6360f 100%);
+ }
+
+
+ *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+
+body {
+    margin: 0;
+    
+  }
+
 
 .btn {
+    flex: 1;
     background: none;
     border: 0;
     cursor: pointer;
-    color: grey;
+    color: white;
     font-size: 1.5rem;
     text-transform: uppercase;
     background: rgba(0,0,0,0.1);
@@ -17,10 +35,25 @@
     padding: 1rem;
 }   
 
-.time-left, .timerLabel{
+#display {
+flex: 1;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-evenly;
+}
+
+.time-left{
     font-weight: 100;
-    font-size: 8rem;
+    font-size: 6rem;
     margin: 0;
     color: black;
-    text-shadow: 4px 4px 0 rgba(7, 9, 102, 0.486);
+    text-shadow: 2px 2px 0 rgba(7, 9, 102, 0.486);
+}
+.timerLabel{
+    font-weight: 80;
+    font-size: 2rem;
+    margin: 0;
+    color: black;
+    text-shadow: 1px 1px 0 rgba(7, 9, 102, 0.486);
 }
