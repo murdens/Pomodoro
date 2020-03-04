@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang=em>
+<head>
+    <meta charset="UTF-8">
+    <title>Pomodoro</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <div class='timer'>
+        <div class='setTimer'></div>
+        <form id="setForm">
+            <label for='work'>Enter Work Minutes</label>
+            <input type="text" id='work' class='form' name="work">
+            <label for='break'>Enter Break/Interval Minutes</label>
+            <input type="text" id='break' class='form' name="break">
+            <label for='round'>Enter No. of Rounds</label>
+            <input type="text" id='round' class='form' name="round">
+        </form>
+      <button id='start' class='btn'>Start</button>
+      <button id='stop' class='btn'>Pause</button>
+      <button id='reset' class='btn'>Reset</button>
+    </div>
+        <div id='display'></div>   
+        
+    <script src="./script.js"> </script>
+</body>
+    
+ 
+</html>
