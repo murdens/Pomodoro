@@ -1,14 +1,17 @@
-let countdown
-let roundCount = 0
 
-let round
-let workMins = 25 // document.getElementById("setForm").elements.namedItem("work").value
-let breakMins = 5 //document.getElementById("setForm").elements.namedItem("work").value
+
+
+let workMins = 1 // document.getElementById("setForm").elements.namedItem("work").value
+let breakMins = 1 //document.getElementById("setForm").elements.namedItem("work").value
 
 let currentTime = workMins * 60
 
-let type = 'work'
+let roundCount = 0
+
+let type = 'WORK'
 let running = true
+let stopped = false
+let countdown = null
 
 const userClick = document.querySelectorAll('.btn')
 const display = document.querySelector('#display')
@@ -34,27 +37,29 @@ display.appendChild(roundDisplay)
 
 //initialise view
 const initialiseDisplay  = () =>{
- 
   timerDisplay.textContent = `${workMins}:${'00'}`
   breakDisplay.textContent = `${breakMins}:${'00'}`
+  timerLabel.textContent = null
   roundDisplay.textContent = 0
 }
 
+//const setTimes = () =>{
+  //let currentTime = prompt('Input work minutes');
+  //let breakmins = prompt('Input break minutes')
+  //startTimer(currentTime)
+//}
+
 // required to move between clocks
 const toggle = () => {
-  if (type === 'work'){
-    type = 'break'
+  if (type === 'WORK'){
+    type = 'BREAK'
     currentTime = breakMins * 60
-    console.log(currentTime)
-    console.log(type)
   } else {
-    type = 'work'
+    type = 'WORK'
     currentTime = workMins * 60
-    console.log(currentTime)
-    console.log(type)
   }
   startTimer()
-}
+};
 
 // format time and display
 function displayTimeLeft(seconds) {
@@ -62,27 +67,75 @@ function displayTimeLeft(seconds) {
   const remainderSeconds = seconds % 60
   const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`
   //document.title = display
-  if (type ==='work'){
+  if (type ==='WORK'){
     timerDisplay.textContent = display
     timerLabel.textContent = 'WORK'
   } else {
     breakDisplay.textContent = display
     timerLabel.textContent = type
   }
+};
+
+const resetTimer = () =>{
+  currentTime=workMins *60
 }
 
 // main timer function call
 const startTimer = () => {
-  clearInterval(countdown)
+  if (running){
   countdown = setInterval(() => {
     currentTime--
     displayTimeLeft(currentTime)
     if (currentTime <=0){
+      if (type ==='WORK'){
+        roundCount++
+        roundDisplay.textContent = roundCount
+      }
+      //running = false
       clearInterval(countdown)
-      toggle()  
-    }
-  },1000)
+      toggle() 
+   }
+  },1000);
 }
+};
+
+// eventlisteners
+userClick.forEach(button => {
+  button.addEventListener('click', (e) => {
+    userChoice = button.id
+
+    if (userChoice == 'start') {
+      running = true
+      startTimer()
+    } else if (userChoice == 'stop') {
+      running = false
+      stop()  
+    } else if (userChoice == 'reset'){
+      stopped = true
+      reset()  
+      initialiseDisplay()
+    }
+  })
+})
+
+const stop = () =>{
+  if (!running){
+  clearInterval(countdown)
+  }
+};
+
+const reset = () =>{
+  if (stopped){
+    clearInterval(countdown)
+    resetTimer()
+    initialiseDisplay()
+  }
+};
+
+initialiseDisplay()
+
+
+
 /*
 document.setForm.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -93,31 +146,3 @@ document.setForm.addEventListener('submit', function(e) {
   this.reset();
 });
 */
-// eventlisteners
-userClick.forEach(button => {
-  button.addEventListener('click', (e) => {
-    userChoice = button.id
-    console.log(userChoice)
-
-    if (userChoice == 'start') {
-      startTimer()
-    } else if (userChoice == 'stop') {
-      pause()  
-    } else if (userChoice == 'reset'){
-      reset()
-    }
-  })
-})
-
-// button functions
-function pause(){
-  clearInterval(countdown)
-}
-
-function reset(){
-  initialiseDisplay()
-  clearInterval(countdown)
-}
-
-initialiseDisplay()
-//initialiseButtons()

@@ -6,7 +6,7 @@
 html {
     box-sizing: border-box;
     font-size: 10px;
-    background: linear-gradient(90deg, #f0946f 0%,#e45745 50%,#b6360f 100%);
+    background: linear-gradient(90deg, #ebaa90 0%,#da513f 50%,#ca3115 100%);
  }
 
 
@@ -15,14 +15,33 @@ html {
   }
   
 
-body {
+  body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
     margin: 0;
-    
   }
 
+h1 {
+    flex: 1;
+    align-content: center;
+    font-size: 6rem;
+    font-family: fantasy    ;
+    text-align: center ;
+    text-shadow: 3px 3px 0 rgba(41, 41, 49, 0.39);
+}
+.setTimer{
+    flex:  1;
+    display: flex;    
+    align-items: center;
+    flex-direction: column;
+}
 
 .btn {
-    flex: 1;
+    flex: 1;   
+    flex-direction: column;
+    justify-self: center;
     background: none;
     border: 0;
     cursor: pointer;
@@ -31,29 +50,32 @@ body {
     text-transform: uppercase;
     background: rgba(0,0,0,0.1);
     border-bottom: 3px solid rgba(0,0,0,0.2);
-    border-right: 1px solid rgba(0,0,0,0.2);
+    border-right: 2px solid rgba(0,0,0,0.2);
     padding: 1rem;
 }   
 
-#display {
-flex: 1;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-evenly;
-}
 
 .time-left{
     font-weight: 100;
     font-size: 6rem;
     margin: 0;
-    color: black;
-    text-shadow: 2px 2px 0 rgba(7, 9, 102, 0.486);
+    color: darkred;
+    text-shadow: 2px 2px 0 rgba(24, 1, 1, 0.685);
 }
+
 .timerLabel{
     font-weight: 80;
     font-size: 2rem;
+    font-family: fantasy;
     margin: 0;
     color: black;
     text-shadow: 1px 1px 0 rgba(7, 9, 102, 0.486);
 }
+
+#display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap ;
+    margin-top: 3rem;
+    }
