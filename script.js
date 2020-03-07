@@ -41,6 +41,7 @@ const initialiseDisplay  = () =>{
   breakDisplay.textContent = `${breakMins}:${'00'}`
   timerLabel.textContent = null
   roundDisplay.textContent = 0
+  console.log(type)
 }
 
 //const setTimes = () =>{
@@ -58,6 +59,7 @@ const toggle = () => {
     type = 'WORK'
     currentTime = workMins * 60
   }
+  console.log(type)
   startTimer()
 };
 
@@ -69,16 +71,17 @@ function displayTimeLeft(seconds) {
   //document.title = display
   if (type ==='WORK'){
     timerDisplay.textContent = display
-    timerLabel.textContent = 'WORK'
+    timerLabel.textContent = type
   } else {
     breakDisplay.textContent = display
     timerLabel.textContent = type
   }
+  console.log(type)
 };
 
-const resetTimer = () =>{
-  currentTime=workMins *60
-}
+//const resetTimer = () =>{
+ // currentTime=workMins *60
+//}
 
 // main timer function call
 const startTimer = () => {
@@ -91,8 +94,8 @@ const startTimer = () => {
         roundCount++
         roundDisplay.textContent = roundCount
       }
-      //running = false
       clearInterval(countdown)
+      console.log(type)
       toggle() 
    }
   },1000);
@@ -107,29 +110,29 @@ userClick.forEach(button => {
     if (userChoice == 'start') {
       running = true
       startTimer()
-    } else if (userChoice == 'stop') {
+    } else if (userChoice == 'pause') {
       running = false
-      stop()  
+      pause()  
     } else if (userChoice == 'reset'){
+      type = 'WORK'
+      running = false
       stopped = true
       reset()  
-      initialiseDisplay()
     }
   })
 })
 
-const stop = () =>{
+const pause = () =>{
   if (!running){
   clearInterval(countdown)
   }
 };
 
 const reset = () =>{
-  if (stopped){
-    clearInterval(countdown)
-    resetTimer()
-    initialiseDisplay()
-  }
+      clearInterval(countdown)
+  //  resetTimer()
+    initialiseDisplay() 
+    console.log(type)  
 };
 
 initialiseDisplay()
