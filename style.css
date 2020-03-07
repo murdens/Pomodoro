@@ -17,31 +17,22 @@ html {
 
   body {
     display: flex;
-    justify-content: center;
     text-align: center;
     flex-direction: column;
     margin: 0;
   }
 
 h1 {
-    flex: 1;
-    align-content: center;
     font-size: 6rem;
     font-family: fantasy    ;
     text-align: center ;
     text-shadow: 3px 3px 0 rgba(41, 41, 49, 0.39);
 }
 .setTimer{
-    flex:  1;
     display: flex;    
-    align-items: center;
-    flex-direction: column;
 }
 
 .btn {
-    flex: 1;   
-    flex-direction: column;
-    justify-self: center;
     background: none;
     border: 0;
     cursor: pointer;
@@ -54,7 +45,6 @@ h1 {
     padding: 1rem;
 }   
 
-
 .time-left{
     font-weight: 100;
     font-size: 6rem;
@@ -63,7 +53,16 @@ h1 {
     text-shadow: 2px 2px 0 rgba(24, 1, 1, 0.685);
 }
 
-.timerLabel{
+#display {
+   
+    padding-top: 4rem;
+}
+
+#rDisplay {
+    padding-top: 2rem;
+}
+
+.displayLabel{
     font-weight: 80;
     font-size: 2rem;
     font-family: fantasy;
@@ -71,11 +70,11 @@ h1 {
     color: black;
     text-shadow: 1px 1px 0 rgba(7, 9, 102, 0.486);
 }
-
-#display {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap ;
-    margin-top: 3rem;
-    }
+.typeLabel{
+    font-weight: 80;
+    font-size: 5rem;
+    font-family: fantasy;
+    margin: 0;
+    color: black;
+    text-shadow: 1px 1px 0 rgba(7, 9, 102, 0.486);
+}

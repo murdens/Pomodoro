@@ -1,8 +1,6 @@
 
-
-
-let workMins = 25 // document.getElementById("setForm").elements.namedItem("work").value
-let breakMins = 5 //document.getElementById("setForm").elements.namedItem("work").value
+let workMins = 1 // document.getElementById("setForm").elements.namedItem("work").value
+let breakMins = 2 //document.getElementById("setForm").elements.namedItem("work").value
 
 let currentTime = workMins * 60
 
@@ -18,28 +16,24 @@ const display = document.querySelector('#display')
 
 
 // display timers
-let timerDisplay = document.createElement('h1')
+
+let timerDisplay = document.createElement('p')
 timerDisplay.classList.add('time-left')
-display.appendChild(timerDisplay)
+wDisplay.appendChild(timerDisplay)
 
-let breakDisplay = document.createElement('h1')
+let breakDisplay = document.createElement('p')
 breakDisplay.classList.add('time-left')
-display.appendChild(breakDisplay)
+bDisplay.appendChild(breakDisplay)
 
-let timerLabel = document.createElement('p')
-timerLabel.classList.add('timerLabel')
-display.appendChild(timerLabel)
-
-let roundDisplay = document.createElement('h2')
+let roundDisplay = document.createElement('p')
 roundDisplay.classList.add('time-left')
-display.appendChild(roundDisplay)
+rDisplay.appendChild(roundDisplay)
 
 
 //initialise view
 const initialiseDisplay  = () =>{
   timerDisplay.textContent = `${workMins}:${'00'}`
   breakDisplay.textContent = `${breakMins}:${'00'}`
-  timerLabel.textContent = null
   roundDisplay.textContent = 0
 }
 
@@ -69,16 +63,10 @@ function displayTimeLeft(seconds) {
   //document.title = display
   if (type ==='WORK'){
     timerDisplay.textContent = display
-    timerLabel.textContent = type
   } else {
     breakDisplay.textContent = display
-    timerLabel.textContent = type
   }
 };
-
-const resetTimer = () =>{
- currentTime=workMins *60
-}
 
 // main timer function call
 const startTimer = () => {
@@ -130,9 +118,11 @@ const reset = () =>{
     initialiseDisplay() 
 };
 
+const resetTimer = () =>{
+  currentTime=workMins *60
+ }
+ 
 initialiseDisplay()
-
-
 
 /*
 document.setForm.addEventListener('submit', function(e) {
