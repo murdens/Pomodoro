@@ -1,8 +1,8 @@
 
 
 
-let workMins = 1 // document.getElementById("setForm").elements.namedItem("work").value
-let breakMins = 1 //document.getElementById("setForm").elements.namedItem("work").value
+let workMins = 25 // document.getElementById("setForm").elements.namedItem("work").value
+let breakMins = 5 //document.getElementById("setForm").elements.namedItem("work").value
 
 let currentTime = workMins * 60
 
@@ -41,7 +41,6 @@ const initialiseDisplay  = () =>{
   breakDisplay.textContent = `${breakMins}:${'00'}`
   timerLabel.textContent = null
   roundDisplay.textContent = 0
-  console.log(type)
 }
 
 //const setTimes = () =>{
@@ -59,7 +58,6 @@ const toggle = () => {
     type = 'WORK'
     currentTime = workMins * 60
   }
-  console.log(type)
   startTimer()
 };
 
@@ -76,12 +74,11 @@ function displayTimeLeft(seconds) {
     breakDisplay.textContent = display
     timerLabel.textContent = type
   }
-  console.log(type)
 };
 
-//const resetTimer = () =>{
- // currentTime=workMins *60
-//}
+const resetTimer = () =>{
+ currentTime=workMins *60
+}
 
 // main timer function call
 const startTimer = () => {
@@ -95,7 +92,6 @@ const startTimer = () => {
         roundDisplay.textContent = roundCount
       }
       clearInterval(countdown)
-      console.log(type)
       toggle() 
    }
   },1000);
@@ -130,9 +126,8 @@ const pause = () =>{
 
 const reset = () =>{
       clearInterval(countdown)
-  //  resetTimer()
+    resetTimer()
     initialiseDisplay() 
-    console.log(type)  
 };
 
 initialiseDisplay()
