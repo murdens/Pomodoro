@@ -6,7 +6,7 @@
 html {
     box-sizing: border-box;
     font-size: 10px;
-    background: linear-gradient(90deg,#da513f 0%, #eb846a 50%,#ca3115 100%);
+    background: linear-gradient(90deg,#ca3115 0%, #eb846a 50%,#ca3115 100%);
  }
 
  *, *:before, *:after {
