@@ -1,6 +1,8 @@
 <strong>POMODORO CLOCK PROJECT</strong>
 
-@TheOdinProject
+https://murdens.github.io/Pomodoro/
+
+TheOdinProject
 
 JAVASCRIPT, HTML AND CSS
 
