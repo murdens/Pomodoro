@@ -6,7 +6,7 @@
 html {
     box-sizing: border-box;
     font-size: 10px;
-    background: linear-gradient(90deg, #ebaa90 0%,#da513f 50%,#ca3115 100%);
+    background: linear-gradient(90deg,#da513f 0%, #e28181 50%,#ca3115 100%);
  }
 
 
@@ -34,6 +34,7 @@ h1 {
 
 .btn {
     background: none;
+    margin-inline: 10px;
     border: 0;
     cursor: pointer;
     color: white;
@@ -42,10 +43,10 @@ h1 {
     background: rgba(0,0,0,0.1);
     border-bottom: 3px solid rgba(0,0,0,0.2);
     border-right: 2px solid rgba(0,0,0,0.2);
-    padding: 1rem;
+    padding: 1.5rem;
 }   
 
-.time-left{
+.break-left{
     font-weight: 100;
     font-size: 6rem;
     margin: 0;
@@ -53,9 +54,25 @@ h1 {
     text-shadow: 2px 2px 0 rgba(24, 1, 1, 0.685);
 }
 
+.work-left{
+    font-weight: 100;
+    font-size: 6rem;
+    margin: 0;
+    color:darkgreen;
+    text-shadow: 2px 2px 0 rgba(24, 1, 1, 0.685);
+}
+
+.round{
+    font-weight: 100;
+    font-size: 6rem;
+    margin: 0;
+    color:black;
+    text-shadow: 2px 2px 0 rgba(24, 1, 1, 0.685);
+}
+
 #display {
    
-    padding-top: 4rem;
+    padding-top: 2rem;
 }
 
 #rDisplay {
