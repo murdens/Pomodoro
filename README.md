@@ -3,6 +3,7 @@
 @TheOdinProject
 
 - Used Wes Bos Countdown timer as basis for Javascript
+- Alarm sound from www.orangefreesounds.com
 
 <strong>Still to be completed:</strong>
 

@@ -6,7 +6,7 @@
 html {
     box-sizing: border-box;
     font-size: 10px;
-    background: linear-gradient(90deg,#da513f 0%, #e28181 50%,#ca3115 100%);
+    background: linear-gradient(90deg,#da513f 0%, #eb846a 50%,#ca3115 100%);
  }
 
 
@@ -14,7 +14,6 @@ html {
     box-sizing: inherit;
   }
   
-
   body {
     display: flex;
     text-align: center;
@@ -23,11 +22,12 @@ html {
   }
 
 h1 {
-    font-size: 6rem;
-    font-family: fantasy    ;
+    font-size: 50px;
+    font-family:fantasy, sans-serif;
     text-align: center ;
     text-shadow: 3px 3px 0 rgba(41, 41, 49, 0.39);
 }
+
 .setTimer{
     display: flex;    
 }
@@ -37,7 +37,7 @@ h1 {
     margin-inline: 10px;
     border: 0;
     cursor: pointer;
-    color: white;
+    color:wheat;
     font-size: 1.5rem;
     text-transform: uppercase;
     background: rgba(0,0,0,0.1);
@@ -46,19 +46,11 @@ h1 {
     padding: 1.5rem;
 }   
 
-.break-left{
+.time-left{
     font-weight: 100;
     font-size: 6rem;
     margin: 0;
-    color: darkred;
-    text-shadow: 2px 2px 0 rgba(24, 1, 1, 0.685);
-}
-
-.work-left{
-    font-weight: 100;
-    font-size: 6rem;
-    margin: 0;
-    color:darkgreen;
+    color: wheat;
     text-shadow: 2px 2px 0 rgba(24, 1, 1, 0.685);
 }
 
@@ -70,18 +62,31 @@ h1 {
     text-shadow: 2px 2px 0 rgba(24, 1, 1, 0.685);
 }
 
-#display {
-   
-    padding-top: 2rem;
+#tomatotop{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width:0; 
+    height:25px; 
+    border-right:50px solid green;
+    border-left:50px solid green;
+    border-top:27px solid transparent;
 }
 
-#rDisplay {
-    padding-top: 2rem;
+#display {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 300px;
+    height: 240px;
+    border-radius: 75%;
+    padding-top: 3rem;
+    background: linear-gradient(90deg,#f0280e 0%, #e75e3b 50%,#f82702 100%);
 }
 
 .displayLabel{
     font-weight: 80;
-    font-size: 2rem;
+    font-size: 20px;
     font-family: fantasy;
     margin: 0;
     color: black;
@@ -89,7 +94,7 @@ h1 {
 }
 .typeLabel{
     font-weight: 80;
-    font-size: 5rem;
+    font-size: 40px;
     font-family: fantasy;
     margin: 0;
     color: black;

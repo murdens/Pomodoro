@@ -1,28 +1,24 @@
 
-let workMins = 25 // document.getElementById("setForm").elements.namedItem("work").value
-let breakMins = 5 //document.getElementById("setForm").elements.namedItem("work").value
-
+let workMins = 0
+let breakMins = 0 
 let currentTime = workMins * 60
-
 let roundCount = 0
-
 let type = 'WORK'
 let running = true
 let stopped = false
 let countdown = null
-
 const userClick = document.querySelectorAll('.btn')
 const display = document.querySelector('#display')
-
+const chooseTimes = document.querySelector('#start');
 
 // display timers
 
 let timerDisplay = document.createElement('p')
-timerDisplay.classList.add('work-left')
+timerDisplay.classList.add('time-left')
 wDisplay.appendChild(timerDisplay)
 
 let breakDisplay = document.createElement('p')
-breakDisplay.classList.add('break-left')
+breakDisplay.classList.add('time-left')
 bDisplay.appendChild(breakDisplay)
 
 let roundDisplay = document.createElement('p')
@@ -34,13 +30,8 @@ rDisplay.appendChild(roundDisplay)
 const initialiseDisplay  = () =>{
   timerDisplay.textContent = `${workMins}:${'00'}`
   breakDisplay.textContent = `${breakMins}:${'00'}`
+  roundDisplay.textContent = roundCount
 }
-
-//const setTimes = () =>{
-  //let currentTime = prompt('Input work minutes');
-  //let breakmins = prompt('Input break minutes')
-  //startTimer(currentTime)
-//}
 
 // required to move between clocks
 const toggle = () => {
@@ -76,6 +67,8 @@ const startTimer = () => {
     displayTimeLeft(currentTime)
     if (currentTime <=0){
       if (type ==='WORK'){
+        let sound = new Audio("assets/watchalarm.mp3");
+				sound.play();
         roundCount++
         roundDisplay.textContent = roundCount
       }
@@ -91,19 +84,41 @@ userClick.forEach(button => {
   button.addEventListener('click', (e) => {
     userChoice = button.id
 
-    if (userChoice == 'start') {
+    if (userChoice == 'startPom') {
+      clearInterval(countdown)
       running = true
+      workMins = 25
+      breakMins = 5
+      currentTime = workMins * 60    
+      initialiseDisplay()
       startTimer()
     } else if (userChoice == 'pause') {
       running = false
       pause()  
     } else if (userChoice == 'reset'){
+      clearInterval(countdown)
       type = 'WORK'
       running = false
       stopped = true
       reset()  
+    } else if (userChoice == 'restart'){
+      running = true
+      startTimer()
     }
   })
+})
+
+chooseTimes.addEventListener('click', (e) => {
+  document.documentElement.style.overflow = 'auto'
+  clearInterval(countdown)
+  workMins = prompt('Enter work minutes: ')
+  breakMins = prompt('Enter break minutes: ')
+  timerDisplay.textContent = `${workMins}:${'00'}`
+  breakDisplay.textContent = `${breakMins}:${'00'}`
+  currentTime = workMins * 60
+  roundCount = 0
+  running = true
+  startTimer() 
 })
 
 const pause = () =>{
@@ -114,6 +129,8 @@ const pause = () =>{
 
 const reset = () =>{
     clearInterval(countdown)
+    workMins = breakMins = currentTime = 0
+    roundCount = 0
     resetTimer()
     initialiseDisplay() 
 };
@@ -123,14 +140,3 @@ const resetTimer = () =>{
 }
  
 initialiseDisplay()
-
-/*
-document.setForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const workMins = this.work.value;
-  const breakMins = this.break.value;
-  const round = this.round.value;
-  timer(mins * 60);
-  this.reset();
-});
-*/
