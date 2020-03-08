@@ -2,6 +2,7 @@
 let workMins = 0
 let breakMins = 0 
 let currentTime = workMins * 60
+let maxRound = 0
 let roundCount = 0
 let type = 'WORK'
 let running = true
@@ -24,7 +25,6 @@ bDisplay.appendChild(breakDisplay)
 let roundDisplay = document.createElement('p')
 roundDisplay.classList.add('round')
 rDisplay.appendChild(roundDisplay)
-
 
 //initialise view
 const initialiseDisplay  = () =>{
@@ -67,10 +67,11 @@ const startTimer = () => {
     displayTimeLeft(currentTime)
     if (currentTime <=0){
       if (type ==='WORK'){
-        let sound = new Audio("assets/watchalarm.mp3");
-				sound.play();
         roundCount++
         roundDisplay.textContent = roundCount
+        let sound = new Audio("assets/watchalarm.mp3");
+        sound.play();        
+        roundEnd()
       }
       clearInterval(countdown)
       toggle() 
@@ -87,9 +88,10 @@ userClick.forEach(button => {
     if (userChoice == 'startPom') {
       clearInterval(countdown)
       running = true
+      maxRound = 4
       workMins = 25
       breakMins = 5
-      currentTime = workMins * 60    
+      currentTime = workMins * 60
       initialiseDisplay()
       startTimer()
     } else if (userChoice == 'pause') {
@@ -113,6 +115,7 @@ chooseTimes.addEventListener('click', (e) => {
   clearInterval(countdown)
   workMins = prompt('Enter work minutes: ')
   breakMins = prompt('Enter break minutes: ')
+  maxRound = prompt('Enter number of rounds: ')
   timerDisplay.textContent = `${workMins}:${'00'}`
   breakDisplay.textContent = `${breakMins}:${'00'}`
   currentTime = workMins * 60
@@ -138,5 +141,17 @@ const reset = () =>{
 const resetTimer = () =>{
   currentTime=workMins *60
 }
- 
+
+const roundEnd = () =>{
+  if (roundCount >= maxRound){
+    running = false
+    stopped = true
+    clearInterval(countdown)
+    workMins = breakMins = currentTime = 0
+    roundCount = 0
+    resetTimer()
+    initialiseDisplay()         
+  }
+}
+
 initialiseDisplay()
