@@ -1,10 +1,10 @@
-<strong>POMODORO CLOCK PROJECT</strong>
+# POMODORO CLOCK PROJECT
 
 https://murdens.github.io/Pomodoro/
 
 TheOdinProject
 
-JAVASCRIPT, HTML AND CSS
+<strong>JAVASCRIPT, HTML AND CSS</strong>
 
 - Utilised Wes Bos Countdown timer as basis for Javascript
 - Pomodoro has default setting and option to set own session timer and rounds using prompt pop ups.
